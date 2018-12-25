@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: easy-socket
+Implementation-Version: 1.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: io.github.13126851612
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://gitee.com/xiaoyudeguang/springboot-socket
+Created-By: Maven Integration for Eclipse
+
