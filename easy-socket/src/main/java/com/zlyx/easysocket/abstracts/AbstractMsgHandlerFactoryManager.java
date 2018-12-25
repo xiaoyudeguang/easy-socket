@@ -29,7 +29,7 @@ public abstract class AbstractMsgHandlerFactoryManager extends AbstractMsgHandle
 	
 	protected String eventName = "ClassPathChangedEvent";
 
-	protected void dispatch(Map<String, Object> receivers) throws Exception {
+	protected void start(Map<String, Object> receivers) throws Exception {
 		Object receiverBean = null;
 		MsgHandler msgHandler = null; 
 		for(String beanName : receivers.keySet()){
@@ -37,7 +37,6 @@ public abstract class AbstractMsgHandlerFactoryManager extends AbstractMsgHandle
 			msgHandler = receiverBean.getClass().getAnnotation(MsgHandler.class);
 			startListener(receiverBean, msgHandler, beanName);
 		}
-		System.out.println(getFactoryNames());
 	}
 
 	private void startListener(Object receiverBean, MsgHandler msgHandler,
@@ -50,6 +49,7 @@ public abstract class AbstractMsgHandlerFactoryManager extends AbstractMsgHandle
 				handler = new DefaultMsgHandler();
 			}
 			AbstractMsgHandlerFactory factory =  getFactory(msgHandler,handler);
+			logger.info("Easy-socket have started an "+msgHandler.level()+" listener on port "+msgHandler.port()+" for "+handler.getClass());
 			registryFactory(beanName, factory);
 			ThreadManager.execute(factory);
 		}
@@ -104,20 +104,16 @@ public abstract class AbstractMsgHandlerFactoryManager extends AbstractMsgHandle
 	 
 	protected void destory() throws Exception {
 		AbstractMsgHandlerFactory  factory = null; 
-		try {  
-			System.out.println(getFactoryNames());
+		try { 
 			for(String beanName : getFactoryNames()) {					
 				factory = getFactory(beanName);
 				if(factory!=null) { 
-					System.out.println(beanName+":"+factory.getClass().getSimpleName());
 					factory.closeServer();  
 				}       
 				deleFactory(beanName);
 			}     
 		}catch(Exception e) {    
 			
-		}finally {
-			System.out.println("关闭成功");
 		}
 		Thread.sleep(15000); 
 	}

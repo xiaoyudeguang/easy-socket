@@ -29,13 +29,12 @@ public class AioTcpMsgHandlerFactory extends AbstractMsgHandlerFactory implement
 	public AioTcpMsgHandlerFactory(int port, int size, IMsgHandler handler) throws Exception {
 		super(port,size,handler);
 		server = new AioQuickServer<String>(this.PORT, new PrivateProtocol(), this);
-		System.out.println("AIO开始服务"+server.hashCode());
+		server.setBannerEnabled(false);
 		server.start();	
 	}
  
 	@Override  
 	public void closeServer() throws Exception {
-		System.out.println("AIO停止服务"+server.hashCode());
 		server.shutdown(); 
 	}   
 	

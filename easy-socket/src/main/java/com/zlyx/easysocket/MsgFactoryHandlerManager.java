@@ -22,9 +22,7 @@ public class MsgFactoryHandlerManager extends AbstractMsgHandlerFactoryManager i
 			if (receivers == null || receivers.size() < 1) {
 				return; 
 			} 
-//			Thread.sleep(receivers.size()*5000);
-//			Thread.sleep(15000);
-			dispatch(receivers);
+			start(receivers);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -32,7 +30,6 @@ public class MsgFactoryHandlerManager extends AbstractMsgHandlerFactoryManager i
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
-		System.out.println("dsadasdas:"+event.getClass().getSimpleName());
 		if(this.eventName.equals(event.getClass().getSimpleName())) {
 			new Thread() {
 				@Override 
