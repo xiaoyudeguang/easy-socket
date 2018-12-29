@@ -1,7 +1,7 @@
 # easy-socket
 
 # 简介 #
-当你按客户需求哐哧哐哧写了一通tcp，却被客户临时告知改成udp后，不需要拿菜刀砍客户了，只需要修改一个注解值，轻松切换。支持bio方式、nio方式、aio方式下的tcp编程，支持bio方式、nio方式下的udp编程。相信我，你需要的，是一个easy-socket。码云地址：https://gitee.com/xiaoyudeguang/springboot-socket
+当你按客户需求哐哧哐哧写了一通tcp，却被客户临时告知改成udp后，不需要拿菜刀砍客户了，只需要修改一个注解值，轻松切换。支持bio方式、nio方式、aio方式下的tcp编程，支持bio方式、nio方式下的udp编程。相信我，你需要的，是一个easy-socket。github地址：https://github.com/xiaoyudeguang/easy-socket
 
 
 # 使用 #
@@ -73,9 +73,9 @@ public class NUMDemo implements IMsgHandler{
 
 ```
 <dependency>
-  <groupId>io.github.13126851612</groupId>
+  <groupId>io.github.xiaoyudeguang</groupId>
   <artifactId>easy-socket</artifactId>
-  <version>1.0.1-RELEASE</version>
+  <version>3.0.0-RELEASE</version>
 </dependency>
 ```
 
