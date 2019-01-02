@@ -75,7 +75,7 @@ public class NUMDemo implements IMsgHandler{
 <dependency>
   <groupId>io.github.xiaoyudeguang</groupId>
   <artifactId>easy-socket</artifactId>
-  <version>3.0.0-RELEASE</version>
+  <version>3.0.2-RELEASE</version>
 </dependency>
 ```
 
